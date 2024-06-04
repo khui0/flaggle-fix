@@ -6,7 +6,7 @@
         v-model="value"
         type="text"
         :class="[showingResults ? 'showing-results' : '']"
-        placeholder="Type a location name here..."
+        placeholder="Guess a country!"
         autofocus
         @input="search"
       >

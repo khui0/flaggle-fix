@@ -100,7 +100,7 @@ export default {
     flex: 1;
     background-color: #eee;
     padding: 0.25rem 0.5rem;
-    border: 0.25rem solid var(--border-color);
+    border: 1px solid var(--border-color);
     font-weight: 600;
     text-overflow: ellipsis;
     overflow: hidden;
