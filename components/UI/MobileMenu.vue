@@ -33,7 +33,7 @@
       </li>
       <li>
         <a
-          href="https://github.com/andydeforest/flagle"
+          href="https://github.com/khui0/flaggle-fix"
           target="_blank"
           @click="$emit('hide-menu')"
         >
@@ -57,7 +57,7 @@
   right: 0;
   bottom: 0;
   color: #fff;
-  padding: 2rem;
+  padding: 1rem;
 
   &__links {
     text-align: right;

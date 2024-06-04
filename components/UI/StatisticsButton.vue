@@ -5,7 +5,7 @@
       @click="modalOpen = true"
     >
       <span class="ui-statistics-button__desktop">
-        Your Statistics
+        Stats
       </span>
       <span class="ui-statistics-button__mobile">
         <BaseIcon icon="fa-solid fa-chart-column" />
