@@ -1,5 +1,8 @@
 {
-  "extends": ["stylelint-config-standard-scss", "stylelint-config-recommended-vue/scss"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue/scss"
+  ],
   "rules": {
     "color-function-notation": "legacy",
     "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",

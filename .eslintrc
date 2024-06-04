@@ -12,14 +12,16 @@
     "space-before-function-paren": "off",
     "vue/multi-word-component-names": "off",
     "vue/require-default-prop": "off",
-    "vue/no-v-html": "off"
+    "vue/no-v-html": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off"
   },
   "overrides": [
     {
-        "files": ["*.ts"],
-        "rules": {
-            "no-undef": "off"
-        }
+      "files": ["*.ts"],
+      "rules": {
+        "no-undef": "off"
+      }
     }
-]
+  ]
 }
