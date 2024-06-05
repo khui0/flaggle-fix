@@ -2,8 +2,6 @@
 
 Flagle is a guessing game which presents the user with a country's flag, and gives them six tries to guess what country it belongs to. If an incorrect guess is given, you will receive the proximity of the correct country based on the incorrectly guessed country. Get the country correct within six tries, and you win! See how long you can keep your streak going!
 
-Demo available here: [https://andydeforest.github.io/flagle](https://andydeforest.github.io/flagle/)
-
 ## Setup
 
 Make sure to install the dependencies:
