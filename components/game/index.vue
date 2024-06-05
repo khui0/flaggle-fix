@@ -1,10 +1,8 @@
 <template>
   <div v-if="gameStore.selected" class="game">
-    <!-- Flag -->
     <div class="game__flag">
       <GameFlag :image="`images/flags/${gameStore.selected.flag}`" />
     </div>
-    <!-- Guess input -->
     <div v-if="!gameOver || !displayAnswer" class="game__guess-input">
       <GameGuessInput
         :game-over="gameOver"
@@ -15,7 +13,6 @@
     <div v-else class="game__answer">
       <h3>Correct Answer: {{ gameStore.selected.name }}</h3>
     </div>
-    <!-- Guess grid -->
     <div class="game__guesses">
       <GameGuessDisplay
         v-for="(result, x) in gameStore.results"
@@ -27,13 +24,13 @@
         :key="remaining"
       />
     </div>
-    <!-- Give up button -->
+    <!-- GIVE UP -->
     <div v-if="!displayAnswer && !gameOver" class="game__give-up-menu">
-      <button class="game__play-again" @click="giveUp">Give Up</button>
+      <button class="game__button" @click="giveUp">Give Up</button>
     </div>
-    <!-- Play again button -->
+    <!-- PLAY AGAIN -->ƒ
     <div v-if="gameOver">
-      <button class="game__play-again" @click="playAgain">Play Again</button>
+      <button class="game__button" @click="playAgain">Play Again</button>
     </div>
   </div>
 </template>
@@ -96,33 +93,24 @@ export default {
         this.gameStore.generateRandom(this.gameMode);
       }
     },
-    playAgain() {
-      if (this.gameOver) {
-        // game has already been registerd as over, so we restart it
-        this.gameOver = false;
-        this.displayAnswer = false;
-        this.gameStore.results = [];
-        this.startGame(true);
-      }
-      // after the button click, focus the input, but give it 0.5s to render
-      setTimeout(() => {
-        const input = document.querySelector('input[type="text"]');
-        if (input) {
-          input.focus();
-        }
-      }, 500);
-    },
     giveUp() {
-      if (!this.gameOver) {
-        // user is resetting before they finished, reset their streak
-        this.gameStore.statistics.winStreak = 0;
-        // record as a loss
-        this.gameStore.handleResult(false, this.gameStore.results.length);
-        // show the the correct answer
-        this.displayAnswer = true;
-        this.gameOver = true;
-      }
-      // after the button click, focus the input, but give it 0.5s to render
+      // GIVE UP
+      this.gameStore.statistics.winStreak = 0;
+      this.gameStore.handleResult(false, this.gameStore.results.length);
+      this.displayAnswer = true;
+      this.gameOver = true;
+      this.resetGame();
+    },
+    playAgain() {
+      // PLAY AGAIN
+      this.gameOver = false;
+      this.displayAnswer = false;
+      this.gameStore.results = [];
+      this.startGame(true);
+      this.resetGame();
+    },
+    resetGame() {
+      // Focus input, but give it 0.5s to render
       setTimeout(() => {
         const input = document.querySelector('input[type="text"]');
         if (input) {
@@ -147,7 +135,7 @@ export default {
     gap: var(--guess-gap);
   }
 
-  &__play-again {
+  &__button {
     background-color: var(--flagle-blue);
     color: #fff;
     width: 100%;
