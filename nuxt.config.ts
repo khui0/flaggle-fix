@@ -2,22 +2,22 @@
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: "/flaggle-fix/",
+    baseURL: "/flagle/",
     head: {
       titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | Flaggle` : "Flaggle";
+        return titleChunk ? `${titleChunk} | Flagle` : "Flagle";
       },
       meta: [
         {
           name: "description",
-          content: "Flag guessing game",
+          content: "Flagle is a Wordle-inspired flag guessing game.",
         },
         { hid: "og-type", property: "og:type", content: "website" },
-        { hid: "og-title", property: "og:title", content: "Flaggle" },
+        { hid: "og-title", property: "og:title", content: "Flagle" },
         {
           hid: "og-desc",
           property: "og:description",
-          content: "Flag guessing game",
+          content: "Flagle is a Wordle-inspired flag guessing game.",
         },
         {
           hid: "og-image",
