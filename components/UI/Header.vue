@@ -2,37 +2,25 @@
   <header class="ui-header">
     <div class="ui-header__logo">
       <NuxtLink to="/">
-        <img
-          src="/images/icon.png"
-          alt="Flagle logo"
-        >
+        <img src="/images/icon.png" alt="Flagle logo" />
       </NuxtLink>
     </div>
     <div class="ui-header__nav">
       <ul>
         <li>
-          <NuxtLink to="/">
-            Home
-          </NuxtLink>
+          <NuxtLink to="/"> Home </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/states">
-            U.S. State Flags
-          </NuxtLink>
+          <NuxtLink to="/states"> U.S. State Flags </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about">
-            About
-          </NuxtLink>
+          <NuxtLink to="/about"> About </NuxtLink>
         </li>
         <li>
           <UIStatisticsButton />
         </li>
         <li>
-          <a
-            href="https://github.com/andydeforest/flagle"
-            target="_blank"
-          >
+          <a href="https://github.com/khui0/flaggle-fix" target="_blank">
             <BaseIcon icon="fab fa-github" />
           </a>
         </li>
@@ -47,10 +35,7 @@
       </button>
     </div>
     <transition name="menu-slide">
-      <UIMobileMenu
-        v-if="menuOpen"
-        @hide-menu="hideMenu"
-      />
+      <UIMobileMenu v-if="menuOpen" @hide-menu="hideMenu" />
     </transition>
   </header>
 </template>
@@ -59,30 +44,30 @@
 export default {
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
     };
   },
   watch: {
     menuOpen(isOpen) {
-      const bodyClass = 'menu-open';
+      const bodyClass = "menu-open";
       if (isOpen) {
         document.body.classList.add(bodyClass);
       } else {
         document.body.classList.remove(bodyClass);
       }
-    }
+    },
   },
   mounted() {
-    window.addEventListener('resize', this.hideMenu);
+    window.addEventListener("resize", this.hideMenu);
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.hideMenu);
+    window.removeEventListener("resize", this.hideMenu);
   },
   methods: {
     hideMenu() {
       this.menuOpen = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
