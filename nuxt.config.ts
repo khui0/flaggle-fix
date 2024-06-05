@@ -2,63 +2,74 @@
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: '/flagle/',
+    baseURL: "/flagle/",
     head: {
       titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | Flagle` : 'Flagle';
+        return titleChunk ? `${titleChunk} | Flagle` : "Flagle";
       },
       meta: [
-        { name: 'description', content: 'Flagle is a Wordle-inspired flag guessing game.' },
-        { hid: 'og-type', property: 'og:type', content: 'website' },
-        { hid: 'og-title', property: 'og:title', content: 'Flagle' },
-        { hid: 'og-desc', property: 'og:description', content: 'Flagle is a Wordle-inspired flag guessing game.' },
-        { hid: 'og-image', property: 'og:image', content: 'https://andydeforest.github.io/flagle/meta.jpg' }
+        {
+          name: "description",
+          content: "Flagle is a Wordle-inspired flag guessing game.",
+        },
+        { hid: "og-type", property: "og:type", content: "website" },
+        { hid: "og-title", property: "og:title", content: "Flagle" },
+        {
+          hid: "og-desc",
+          property: "og:description",
+          content: "Flagle is a Wordle-inspired flag guessing game.",
+        },
+        {
+          hid: "og-image",
+          property: "og:image",
+          content: "https://andydeforest.github.io/flagle/meta.jpg",
+        },
       ],
-      link: [{ rel: 'icon', type: 'image/png', href: 'favicon.png' }]
+      link: [{ rel: "icon", type: "image/png", href: "favicon.png" }],
     },
-    pageTransition: { name: 'page', mode: 'out-in' }
   },
   css: [
-    '@fortawesome/fontawesome-svg-core/styles.css',
-    '@/assets/scss/app.scss'
+    "@fortawesome/fontawesome-svg-core/styles.css",
+    "@/assets/scss/app.scss",
   ],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
           sourceMap: true,
-          additionalData: '@import "~/assets/scss/mixins.scss"; @import "~/assets/scss/settings.scss";'
-        }
-      }
-    }
+          additionalData:
+            '@import "~/assets/scss/mixins.scss"; @import "~/assets/scss/settings.scss";',
+        },
+      },
+    },
   },
   modules: [
-    '@nuxtjs/device',
-    '@nuxtjs/google-fonts',
+    "@nuxtjs/device",
+    "@nuxtjs/google-fonts",
     [
-      '@pinia/nuxt', {
-        autoImports: ['defineStore', 'acceptHMRUpdate']
-
-      }
+      "@pinia/nuxt",
+      {
+        autoImports: ["defineStore", "acceptHMRUpdate"],
+      },
     ],
-    '@pinia-plugin-persistedstate/nuxt'
+    "@pinia-plugin-persistedstate/nuxt",
   ],
   device: {
-    refreshOnResize: true
+    refreshOnResize: true,
   },
   googleFonts: {
     families: {
-      Raleway: [400, 600, 700, 800]
+      Raleway: [400, 600, 700, 800],
     },
-    display: 'swap'
+    display: "swap",
   },
   alias: {
-    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs'
+    pinia: "/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs",
   },
   piniaPersistedstate: {
-    storage: 'localStorage'
+    storage: "localStorage",
   },
   imports: {
-    dirs: ['stores']
-  }
+    dirs: ["stores"],
+  },
 });
