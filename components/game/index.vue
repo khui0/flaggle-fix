@@ -26,9 +26,11 @@
     </div>
     <!-- GIVE UP -->
     <div v-if="!displayAnswer && !gameOver" class="game__give-up-menu">
-      <button class="game__button" @click="giveUp">Give Up</button>
+      <button tabindex="-1" class="game__button" @click="giveUp">
+        Give Up
+      </button>
     </div>
-    <!-- PLAY AGAIN -->ƒ
+    <!-- PLAY AGAIN -->
     <div v-if="gameOver">
       <button class="game__button" @click="playAgain">Play Again</button>
     </div>
